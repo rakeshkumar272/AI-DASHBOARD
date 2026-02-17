@@ -95,10 +95,13 @@ export default function WorkspacesPage() {
                 setWorkspaces(workspaces.filter((w) => w.id !== workspaceToDelete));
                 setWorkspaceToDelete(null);
             } else {
-                console.error("Failed to delete workspace");
+                const errorData = await res.json().catch(() => ({}));
+                console.error("Failed to delete workspace. Status:", res.status, "Error:", errorData);
+                alert(`Failed to delete workspace: ${errorData.error || "Unknown error"}`);
             }
         } catch (error) {
             console.error("Error deleting workspace", error);
+            alert("Error deleting workspace. Check console.");
         }
     };
 

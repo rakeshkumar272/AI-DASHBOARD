@@ -38,7 +38,7 @@ export const documents = pgTable('documents', {
 
 export const embeddings = pgTable('embeddings', {
     id: uuid('id').defaultRandom().primaryKey(),
-    workspaceId: uuid('workspace_id').references(() => workspaces.id).notNull(),
+    workspaceId: uuid('workspace_id').references(() => workspaces.id, { onDelete: 'cascade' }).notNull(),
     documentId: uuid('document_id').references(() => documents.id, { onDelete: 'cascade' }).notNull(),
     content: text('content').notNull(),
     metadata: jsonb('metadata'),
