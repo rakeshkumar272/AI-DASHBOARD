@@ -11,6 +11,7 @@ import {
     ChevronLeft,
     ChevronRight,
     ShieldCheck,
+    FolderGit2,
     FileText,
 } from "lucide-react";
 import { useState } from "react";
@@ -33,6 +34,7 @@ export function Sidebar({ role, collapsed, setCollapsed }: SidebarProps) {
 
     const userLinks = [
         { href: "/dashboard", label: "Home", icon: LayoutDashboard },
+        { href: "/dashboard/workspaces", label: "Workspaces", icon: FolderGit2 },
         { href: "/dashboard/documents", label: "Documents", icon: FileText },
         { href: "/dashboard/tools", label: "AI Tools", icon: Video },
         { href: "/dashboard/settings", label: "Settings", icon: Settings },
