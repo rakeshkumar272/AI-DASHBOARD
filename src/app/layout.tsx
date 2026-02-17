@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: "Modern glassmorphism dashboard for AI insights",
 };
 
-import ExtensionSafety from "@/components/ExtensionSafety";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}
       >
-        <ExtensionSafety />
+        <Script src="/extension-safety.js" strategy="beforeInteractive" />
         <div className="h-[100dvh] flex flex-col">
           <AuthProvider>{children}</AuthProvider>
         </div>
