@@ -15,12 +15,12 @@ export default function ExtensionSafety() {
                 event.filename?.includes("chrome-extension") ||
                 event.message?.includes("MetaMask") ||
                 event.message?.includes("ethereum") ||
-                event.stack?.includes("chrome-extension")
+                (event.error as Error)?.stack?.includes("chrome-extension")
             ) {
                 event.preventDefault();
                 event.stopPropagation();
                 console.warn("Suppressed extension error:", event.message);
-                return true;
+                return true; // Stop propagation in some browsers
             }
         };
 
