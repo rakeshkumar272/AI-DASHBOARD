@@ -18,17 +18,22 @@ export const metadata: Metadata = {
   description: "Modern glassmorphism dashboard for AI insights",
 };
 
+import ExtensionSafety from "@/components/ExtensionSafety";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}
       >
-        <AuthProvider>{children}</AuthProvider>
+        <ExtensionSafety />
+        <div className="h-[100dvh] flex flex-col">
+          <AuthProvider>{children}</AuthProvider>
+        </div>
       </body>
     </html>
   );

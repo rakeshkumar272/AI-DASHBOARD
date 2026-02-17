@@ -11,6 +11,7 @@ import {
     ChevronLeft,
     ChevronRight,
     ShieldCheck,
+    FileText,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -32,6 +33,7 @@ export function Sidebar({ role, collapsed, setCollapsed }: SidebarProps) {
 
     const userLinks = [
         { href: "/dashboard", label: "Home", icon: LayoutDashboard },
+        { href: "/dashboard/documents", label: "Documents", icon: FileText },
         { href: "/dashboard/tools", label: "AI Tools", icon: Video },
         { href: "/dashboard/settings", label: "Settings", icon: Settings },
     ];
