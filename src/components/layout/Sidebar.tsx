@@ -40,6 +40,13 @@ export function Sidebar({ role, collapsed, setCollapsed }: SidebarProps) {
 
     const links = role === "admin" ? adminLinks : userLinks;
 
+    console.log("SIDEBAR_DEBUG:", {
+        role,
+        linkCount: links.length,
+        labels: links.map(l => l.label),
+        env: process.env.NODE_ENV
+    });
+
     return (
         <aside
             className={cn(
